@@ -1,0 +1,20 @@
+body {
+    background-image: url(https://www.pixelstalk.net/wp-content/uploads/images5/Free-download-Orange-Aesthetic-Wallpaper.png);
+    background-size: auto;
+    height: 10000px;
+    width: auto;
+}
+h1 {
+    text-align: center;
+    color: orange;
+}
+.box1 {
+    width: 450px;
+    height: fit-content;
+    color: orange;
+    border: solid 2.5px black;
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    margin: 25px 700px;
+}
