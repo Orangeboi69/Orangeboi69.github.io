@@ -1,3 +1,1 @@
----
-permalink: /Orange2.html
----
+_config.ym
