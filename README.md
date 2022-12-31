@@ -1,1 +1,1 @@
-_config.ym
+_config.yml
