@@ -58,7 +58,9 @@ function Create() {
         newDiv.className = 'comment';
         newDiv.innerHTML = '<p>' + commentText + '</p><span class="timestamp">' + 'On ' + '<strong>' +timestamp + '</strong>' + ' by ' + '</span><span class="user">' + userName + '</span>';
         document.body.appendChild(newDiv);
-        comments.push("'" + commentText + "' by " + userName + ' at ' + timestamp);
+        var comment = "'" + commentText + "' by " + userName + ' at ' + timestamp;
+        comments.push(comment);
+        localStorage.setItem('comments', JSON.stringify(comments));
         if (hasSwearWord(commentText) == true) {
             console.log('Comment created by ' + userName + ' at ' + timestamp + ' ,which contains a swear word.' + 'The comment ID is : ' + carray++);
         } else {
@@ -69,4 +71,12 @@ function Create() {
         alert("Please do not enter blank comments!");
         console.log(userName + ' tried to create a blank comment at ' + timestamp);
     };
+}
+
+var comments = JSON.parse(localStorage.getItem('comments')) || [];
+for (var i = 0; i < comments.length; i++) {
+    var commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+    commentDiv.innerHTML = '<p>' + comments[i].split('\'')[1] + '</p>' + '<span class="timestamp">' + comments[i].split('\'')[2] + ' by ' + '</span><span class="user">' + comments[i].split('\'')[3] + '</span>';
+    document.body.appendChild(commentDiv);
 }
