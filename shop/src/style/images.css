@@ -1,0 +1,31 @@
+.image-gallery {
+    position: relative;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 2.5%;
+  }
+  
+  .images {
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .images img {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  
+  .images img:first-child {
+    display: block;
+  }
+  
+  .controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }

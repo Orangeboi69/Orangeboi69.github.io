@@ -1,0 +1,586 @@
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    font-display: swap;
+    src: url("https://fonts.googleapis.com/css?family=Montserrat");
+}body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("/shop/src/img/aerial-view-computer-laptop-wooden-table-compressed.jpg");
+    background-size: cover;
+    
+}
+        
+        p{
+            font-size: 17.5px;
+        }
+        a{
+            text-decoration: none;
+        }
+        /* Loader */
+        .loader-wrapper {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(34, 40, 49);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+        .loader{
+            display: inline-block;
+            width: 30px;
+            height: 30px;   
+            position: relative;
+            border: 4px solid rgb(0, 173, 181);
+            animation: loader 2s infinite ease;
+            z-index: 999;
+        }
+        .loader-inner{
+            vertical-align: top;
+            display: inline-block;
+            width: 100%;
+            background-color: rgb(0, 173, 181);
+            animation: loader-inner 2s infinite ease-in;
+            z-index: 999;
+        }
+        @keyframes loader {
+            0% { transform: rotate(0deg);}
+            25% { transform: rotate(180deg);}
+            50% { transform: rotate(180deg);}
+            75% { transform: rotate(360deg);}
+            100% { transform: rotate(360deg);}
+        }
+        @keyframes loader-inner {
+            0% { height: 0%;}
+            25% { height: 0%;}
+            50% { height: 100%;}
+            75% { height: 100%;}
+            100% { height: 0%;}
+        }
+        .fade-out {
+            opacity: 0;
+            transition: all 1s ease-in-out;
+        }
+        .hamburger-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            color: black;
+            z-index: 1000;
+            height: 60px;
+            display: flex; /* Add flex display */
+            text-align: right;
+            border-radius: 0 0 25px 0;
+            transition: all 0.3s;
+        }
+        .hamburger-menu {
+            opacity: 1;
+            transition: opacity 0.3s;
+            z-index: 998;
+        }
+
+        /* Adjust the opacity of the hamburger menu when the 'scrolled' class is present */
+        .hamburger-menu.scrolled {
+            opacity: 0.75;
+        }
+        .hamburger-menu.open {
+            border-radius: 0 0 0 0;
+            transition: all 0.3s;
+        }
+        #menu-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%);
+        }
+        .hamburger-menu #icon {
+            animation: spinning infinite 3.5s ease-in-out;
+        }
+        @keyframes spinning {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(720deg);
+            }
+        }
+        .menu-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 25px;
+            width: 30px;
+            margin: 17.5px;
+            margin-left: auto; /* Move the menu-icon to the right */
+            position: absolute;
+            right: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .bar {
+            background-color: black;
+            height: 3.5px;
+            width: 30px;
+            transition: transform 0.3s, opacity 0.3s;
+            border-radius: 1000px;
+        }
+        .bar.change:nth-child(1) {
+            transform: translateY(11px) rotate(135deg);
+            opacity: 1; /* add this line */
+        }
+
+        .bar.change:nth-child(2) {
+            transform: translateX(100%);
+            opacity: 0; /* add this line */
+        }
+
+        .bar.change:nth-child(3) {
+            transform: translateY(-11px) rotate(-135deg);
+            opacity: 1; /* add this line */
+        }
+        .menu-links {
+            z-index: -1;
+            list-style: none;
+            margin: 0;
+            margin-top: -50px;
+            border-radius: 0 0 15px 15px;
+            text-align: center;
+            padding: 0;
+            opacity: 0;
+            right: 0%;
+            width: 10%;
+            min-width: fit-content;
+            position: absolute;
+            background-color: white;
+            transform: translateY(-34%); /* add this line */;
+            transition: all 0.3s;
+        }
+
+        .menu-links.menu-open {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 10%;
+            min-width: fit-content;
+            padding-left: 0.5%;
+            opacity: 1;
+            transform: translateY(34%); /* add this line */
+            transition: all 0.3s;
+        }
+
+        .menu-links li {
+            padding: 7.5px;
+        }
+
+        .menu-links a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+p{
+    font-size: 17.5px;
+}
+a{
+    text-decoration: none;
+}
+img {
+    line-height : 0;
+    vertical-align:bottom;
+}
+
+*,
+*::after,
+*::before {
+box-sizing: border-box;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+    /* ------------------------------ */
+button {
+    position: relative;
+    border: none;
+    font-size: 18px;
+    transition: color 0.5s, transform 0.2s, background-color 0.2s;
+    outline: none;
+    border-radius: 3px;
+    margin: 0 10px;
+    padding: 23px 33px;
+    border: 3px solid transparent;
+}
+
+button:active {
+    transform: translateY(3px);
+}
+
+button::after,
+button::before {
+    border-radius: 3px;
+}
+.refreshButton {
+    margin-top: 3.5px;
+    margin-bottom: 3.5px;
+    margin-left: 0px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1.105vw 0.205vw #e2e2e2;
+    background-color: white;
+    width: 100%;
+    height: 3vw;
+    border-left: 0.6vw solid orange;
+    border-radius: 0.315vw;
+    font-weight: bolder;
+    font-size: 1.1vw;
+    line-height: 3vw;
+    text-align: center;
+    transition: 0.3s ease-in-out transform;
+}
+
+.refreshButton:hover {
+    color: rgb(49, 33, 0);
+    transition: 0.3s ease-in-out transform;
+}
+.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+.title:hover {
+    cursor: default;
+    font-size: 40px;
+    transition: all 0.3s;
+}
+.text {
+    text-align: center;
+}
+/* Contents */
+.content {
+    position: relative; /* add this line */
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    box-sizing: border-box;
+}
+.content p:hover {
+    cursor: default;
+}
+.hoverable {
+    color: black;
+    cursor: default;
+    text-decoration: none;
+    transition: font-size 0.3s;
+}
+.hoverable a {
+    color: black;
+    text-decoration: none;
+}
+.hoverable:hover {
+    text-decoration: none;
+    font-size: 25px;
+    transition: font-size 0.3s;
+}
+.b {
+    text-align: center;
+    height: max-content;
+    width: max-content;
+    border-radius: 5px;
+}
+.b:hover {
+    cursor: pointer;
+}
+.b.mode {
+    z-index: 4;
+    position: absolute;
+    margin: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    transition: all 0.3s;
+}
+.b.mode:hover {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+.text-block {
+    font-size: 3vw;
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: black;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: white;
+    top: 0;
+    text-align: center;
+}
+.text-block .CTA {
+    font-size: 1vw;
+}
+.trapezoid{
+    height: 100%;
+    width: 48%;
+    background: white;
+    color: black;
+    border-radius: 0 5px 5px 0;
+}
+.trapezoid:after{
+    position: absolute;
+    content: '';
+    left: var(--MtrapeW);
+    top: 0px;
+    height: 100%;
+    border-style: solid;
+    border-color: white transparent white transparent;
+    border-width: var(--trapeH) 0px 0px var(--trapeW);
+}
+.back-img{
+    z-index: 2;
+    position: relative;
+    max-height: 60vh;
+    width: 100%;
+    overflow:hidden;
+    border-radius: 5px;
+    object-fit: cover; /* use the object-fit property to scale the image to fit the container element */
+}
+.no-back {
+    background-color: transparent;
+
+}
+    .no-padding {
+    padding: 0;
+    }  
+    .no-border {
+    border: none;
+    }
+    .ub {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    }
+        /* ------------------------------ */
+
+.shrink-border {
+  background-color: rgba(229, 229, 229, 0.36);
+  color:black;
+  border: 1.75px solid black;
+  z-index: 5;
+}
+
+.shrink-border:hover {
+  background-color: transparent;
+  box-shadow: none;
+  color: black;
+}
+
+.shrink-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1.75px solid black;
+  transition: opacity 0.3s, border 0.3s;
+}
+
+.shrink-border:hover::before {
+  opacity: 0;
+}
+
+.shrink-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(229, 229, 229, 0.36);
+  border: 1.75px solid white;
+  opacity: 0;
+  z-index: -1;
+  transform: scaleX(1.1) scaleY(1.3);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.shrink-border:hover::after {
+  opacity: 1;
+  transform: scaleX(1) scaleY(1);
+}
+.copyrightIMG {
+    opacity: 0.7;
+    font-size: 10px;
+    color: black;
+    bottom: 0;
+}
+/* --------------------------------------------------------------- */
+
+.top-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.top-items li {
+    float: left;
+    position: relative;
+}
+.top-items p{
+    margin-left: 1vh;
+    font-size: 2.5vh;
+}
+.top-items .name {
+    font-weight: bold;
+}
+.top-items .s-imgC {
+    border-style: solid;
+    border-color:  #3d3d3d;
+    border-width: 0 0.5px 1px 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Set the background color */
+}
+
+.top-items .s-imgC img {
+    max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+    max-height: 100%; /* Ensure the image doesn't exceed the container's height */
+    object-fit: contain; /* Fit the entire image within the container */
+}
+
+.top-items .buy {
+    position: absolute;
+    bottom: 5px; /* Change top to bottom */
+    right: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Add this CSS to create space for the button */
+.top-items .item-1,
+.top-items .item-2,
+.top-items .item-3,
+.top-items .item-4,
+.top-items .item-5 {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 20%;
+}
+        /* dark mode */
+        body.dark-mode  {
+            background-color: black;
+            color: white;
+        }
+        .dark-mode .hamburger-menu {
+            background-color: rgba(50, 50, 50, 1);
+            color: white;
+        }
+
+        .dark-mode .content {
+            background-color: rgba(50, 50, 50, 1);
+            color: white;
+            border-color:rgba(20, 20, 20, 1);
+        }
+        .dark-mode .b.mode {
+            background-color: rgba(50, 50, 50, 1);
+            border-color:rgba(20, 20, 20, 1);
+            color: white;
+            transition: all 0.3s;
+        }
+        .dark-mode .b.mode:hover {
+            background-color: #444;
+            border-color:rgba(20, 20, 20, 1);
+            color: white;
+            transition: all 0.3s;
+        }
+        .dark-mode .bar {
+            background-color: white;
+        }
+        .dark-mode .menu-links{
+            background-color: rgba(50, 50, 50, 1);
+        }
+        .dark-mode .menu-links li a{
+            color: white;
+        }
+        .dark-mode.menu-links.menu-open{
+            background-color: rgba(50, 50, 50, 1);
+            color: white;
+        }
+        .dark-mode.parallelogram{
+            border-bottom: 357.25px solid rgb(50, 50, 50);
+            color: white;
+        }
+        .dark-mode .trapezoid {
+            background-color: rgba(50, 50, 50, 1);
+            color: white;
+        }
+        .dark-mode .trapezoid:after {
+            border-color: rgba(50, 50, 50, 1) transparent rgba(50, 50, 50, 1) transparent;
+        }
+        .dark-mode .ub {
+            color: orange;
+        }
+        .dark-mode .copyrightIMG {
+            color: white;
+        }
+        .dark-mode .copyrightIMG a{
+            color: lightsteelblue;
+        }
+        .dark-mode .shrink-border {
+            background-color: rgba(0, 0, 0, 0.36);
+            color: white;
+            border: 1.75px solid white;
+          }
+          
+          .dark-mode .shrink-border:hover {
+            background-color: transparent;
+            box-shadow: none;
+            color: white;
+          }
+          
+          .dark-mode .shrink-border::before {
+            border: 1.75px solid white;
+          }
+          
+          .dark-mode .shrink-border::after {
+            background-color: rgba(0, 0, 0, 0.36);
+            border: 1.75px solid white;
+          }
+          .dark-mode .refreshButton {
+            color: white;
+            box-shadow: 0 0 1.105vw 0.205vw #36261e;
+            background-color: #36261e;
+        }
+          .dark-mode .refreshButton:hover {
+            color: rgb(255, 209, 123);
+        }
+        /*-------*/
