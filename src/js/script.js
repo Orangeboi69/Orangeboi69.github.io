@@ -179,13 +179,13 @@ randomName = [
         }
         }
         function fetchItems(amount) {
-            console.log("fetching target: http://127.0.0.1:5500/shop/src/test/${index}/item.json")
+            console.log("fetching target: http://127.0.0.1:5500/src/test/${index}/item.json")
             console.log("start fetching items...");
             //Default Variables
-            var defaultImg = "/shop/src/img/default.png";
+            var defaultImg = "/src/img/default.png";
             function fetchItemSequentially(index) {
                 console.log("fetching item: " + index);
-                fetch(`/shop/src/test/${index}/item.json`)
+                fetch(`/src/test/${index}/item.json`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);
