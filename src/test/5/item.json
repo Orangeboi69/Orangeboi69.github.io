@@ -1,7 +1,7 @@
 {
     "name": "Black Beanie",
     "image": [
-        "/shop/src/img/BeanieB.avif"
+        "/src/img/BeanieB.avif"
     ],
     "price": 30,
     "url": "#"

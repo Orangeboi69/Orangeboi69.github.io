@@ -1,7 +1,7 @@
 {
     "name": "Black Cargo with Print",
     "image": [
-        "/shop/src/img/BC_with_print.avif"
+        "/src/img/BC_with_print.avif"
     ],
     "price": 80,
     "url": "#"

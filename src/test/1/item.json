@@ -1,7 +1,7 @@
 {
     "name": "Black Tee",
     "image": [
-        "/shop/src/img/black_tee.avif"
+        "/src/img/black_tee.avif"
     ],
     "price": 70,
     "url": "#"
