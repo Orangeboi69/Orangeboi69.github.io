@@ -4,7 +4,7 @@
     src: url(https://fonts.googleapis.com/css?family=Montserrat);
 }body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url("/shop/src/img/aerial-view-computer-laptop-wooden-table-compressed.jpg");
+    background-image: url("/img/aerial-view-computer-laptop-wooden-table-compressed.jpg");
     background-size: cover;
     
 }
