@@ -21,7 +21,7 @@ function fetchProjectWithToken(token,index) {
     .catch(error => {
         console.error('Error:', error);
     });
-};let k = "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";
+};
 function fetchall(){
     for (let i = 0; i < 5; i++) {
         fetchProjectWithToken(k,(i+1));

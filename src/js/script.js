@@ -127,7 +127,7 @@ randomName = [
                 for (let j = 0; j < bars.length; j++) {
                     bars[j].classList.toggle('dark-mode');
                 }
-            }
+            };function de(e) {let o = "";let i = e.substring(0, e.length - 4);let i2 = i.substring(0, i.length - 4);o=atob(i2).substring(4);return o;}
         window.addEventListener('scroll', function() {
             var hamburgerMenu = document.querySelector('.hamburger-menu');
             var scrollPosition = window.scrollY;
@@ -160,32 +160,14 @@ randomName = [
                 alert("Stop it!")
             }
         }
-        function getULELEAmount(ListName){
-            var ulElement = document.querySelector(`${ListName}`); // 或者 'dl'
-            var liElements = ulElement.querySelectorAll('li');
-            return liElements.length;
-        }
-        function ItemsAlign(){ //Temporary function, working on one that can be used anywhere.
-            let lamount = getULELEAmount(".top-items");
-            if (window.innerWidth > window.innerHeight){
-                let llength = document.querySelector(".top-items").offsetWidth
-                let lwidth = llength / lamount - 0.1;
-                for (let i = 0; i < lamount; i++){
-                    document.querySelector(`.item-${i+1}`).style.width = lwidth + "px";
-                    document.querySelector(`.item-${i+1} .s-imgC`).style.height = (lwidth-0.1) + "px";
-                    document.querySelector(`.item-${i+1} .s-imgC`).style.width = (lwidth-0.1) + "px";                    
-                    
-                }
-        }
-        }
         function fetchItems(amount) {
-            console.log("fetching target: http://127.0.0.1:5500/src/test/${index}/item.json")
+            console.log("fetching target: http://127.0.0.1:5500/shop/src/data/${index}/item.json")
             console.log("start fetching items...");
             //Default Variables
-            var defaultImg = "/src/img/default.png";
+            var defaultImg = "/shop/src/img/default.avif";
             function fetchItemSequentially(index) {
                 console.log("fetching item: " + index);
-                fetch(`/src/test/${index}/item.json`)
+                fetch(`/shop/src/data/${index}/item.json`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);
@@ -197,7 +179,22 @@ randomName = [
                         var sObjN = document.querySelector(`.item-${index} .name`);
                         var sObjP = document.querySelector(`.item-${index} .price`);
                         var sObjBuy = document.querySelector(`.item-${index} .buy`);
-                        sObjImg.src = my_JSON_object.image;
+                        var img = new Image();
+
+                        // Set the src attribute to the image path
+                        img.src = my_JSON_object.image;
+                    
+                        // Listen for the load event
+                        img.onload = function() {
+                            // The image path is valid
+                            sObjImg.src = my_JSON_object.image;
+                        };
+                    
+                        // Listen for the error event
+                        img.onerror = function() {
+                            // The image path is not valid
+                            sObjImg.src = defaultImg; // Set to default image
+                        };
                         sObjN.textContent = my_JSON_object.name;
                         if (my_JSON_object.name == "$random") {
                             sObjN.textContent = randomName[Math.floor(Math.random() * randomName.length)];
@@ -221,7 +218,6 @@ randomName = [
         async function main(){
                 while (true){
                     TH();
-                    ItemsAlign();
                     await sleep(100);
                 }
             }
@@ -232,5 +228,4 @@ randomName = [
         console.log("followings are the debug menus.");
         fetchItems(5);
         WebTitle();
-        ItemsAlign();
         main()
