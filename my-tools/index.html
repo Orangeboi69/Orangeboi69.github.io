@@ -12,7 +12,7 @@
     <div class="hamburger-menu">
         <div class="back">
             <div id="arrow"></div>
-            <a id="backURL" href="/home.html">Back</a>
+            <a id="backURL" href="/index.html">Back</a>
         </div>
         
         <p id="menu-title">Oranges shop</p>
@@ -22,11 +22,19 @@
             <div class="bar"></div>
         </div>
         <ul class="menu-links">
-            <li><a href="#">My Games</a></li>
-            <li><a href="#">My Projects</a></li>
+            <li><a href="/default/index.html">My Games</a></li>
+            <li><a href="/default/index.html">My Projects</a></li>
             <li><a href="/my-tools/index.html">Tools I use</a></li>
-            <li><a href="#">Wallet</a></li>
-            <li><a href="#" class="sign-in">Sign in/out</a></li>
+            <li><a href="/default/index.html">Wallet</a></li>
+            <li><a href="/default/index.html" class="sign-in">Sign in/out</a></li>
+        </ul>
+    </div>
+    <div class="content" style="margin-top: 8vh;">
+        <p class="text"><b>Tools I use:</b></p>
+        <ul class="tools">
+            <li class="item1"></li>
+            <li class="item2"></li>
+            <li class="item3"></li>
         </ul>
     </div>
     <!-- Loading screen -->
@@ -38,5 +46,58 @@
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script async src="/src/js/loading.min.js"></script>
+    <script>
+        function toggleMenu() {
+            const menuLinks = document.querySelector('.menu-links');
+            const bars = document.querySelectorAll('.bar');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            hamburgerMenu.classList.add('open');
+            menuLinks.classList.toggle('menu-open');
+            bars.forEach(bar => bar.classList.toggle('change'));
+            if (!menuLinks.classList.contains('menu-open')) {
+                hamburgerMenu.classList.remove('open');
+            }
+        } //Maybe use an evenlistener? and use variables?
+        function WebTitle() {
+        let now = new Date();
+        let month = now.getMonth();
+        let day = now.getDay();
+        var date = now.getDate();
+        const daterepresnts = {
+            0: "Sun",
+            1: "Mon",
+            2: "Tue",
+            3: "Wed",
+            4: "Thr",
+            5: "Fri",
+            6: "Sat"
+        };
+        const monthrepresents = {
+            0: "Jan",
+            1: "Feb",
+            2: "Mar",
+            3: "Apr",
+            4: "May",
+            5: "Jun",
+            6: "Jul",
+            7: "Aug",
+            8: "Sep",
+            9: "Oct",
+            10: "Nov",
+            11: "Dec"
+        };
+        if (date == 1) {
+            date = date + "st";
+        } else if (date == 2) {
+            date = date + "nd";
+        } else if (date == 3) {
+            date = date + "rd";
+        } else {
+            date = date + "th";
+        }
+        document.title = "Orange's Shop - " + daterepresnts[day] + "," + date;
+        };
+        WebTitle();
+    </script>
 </body>
 </html>
