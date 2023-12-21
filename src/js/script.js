@@ -161,7 +161,7 @@ randomName = [
             }
         }
         function fetchItems(amount) {
-            console.log("fetching target: http://orangeboi69.github.io/src/data/${index}/item.json")
+            console.log("fetching target: http://orangeboi69.github.io/src/data/data/${index}/item.json")
             console.log("start fetching items...");
             //Default Variables
             var defaultImg = "/src/img/default.avif";
