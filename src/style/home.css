@@ -4,7 +4,7 @@
     src: url("https://fonts.googleapis.com/css?family=Montserrat");
 }body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url("/src/img/aerial-view-computer-laptop-wooden-table-compressed.jpg");
+    background-image: url("/shop/src/img/aerial-view-computer-laptop-wooden-table-compressed.jpg");
     background-size: cover;
     
 }
@@ -16,177 +16,9 @@
             text-decoration: none;
         }
         /* Loader */
-        .loader-wrapper {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: rgb(34, 40, 49);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-        .loader{
-            display: inline-block;
-            width: 30px;
-            height: 30px;   
-            position: relative;
-            border: 4px solid rgb(0, 173, 181);
-            animation: loader 2s infinite ease;
-            z-index: 999;
-        }
-        .loader-inner{
-            vertical-align: top;
-            display: inline-block;
-            width: 100%;
-            background-color: rgb(0, 173, 181);
-            animation: loader-inner 2s infinite ease-in;
-            z-index: 999;
-        }
-        @keyframes loader {
-            0% { transform: rotate(0deg);}
-            25% { transform: rotate(180deg);}
-            50% { transform: rotate(180deg);}
-            75% { transform: rotate(360deg);}
-            100% { transform: rotate(360deg);}
-        }
-        @keyframes loader-inner {
-            0% { height: 0%;}
-            25% { height: 0%;}
-            50% { height: 100%;}
-            75% { height: 100%;}
-            100% { height: 0%;}
-        }
         .fade-out {
             opacity: 0;
             transition: all 1s ease-in-out;
-        }
-        .hamburger-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            color: black;
-            z-index: 1000;
-            height: 60px;
-            display: flex; /* Add flex display */
-            text-align: right;
-            border-radius: 0 0 25px 0;
-            transition: all 0.3s;
-        }
-        .hamburger-menu {
-            opacity: 1;
-            transition: opacity 0.3s;
-            z-index: 998;
-        }
-
-        /* Adjust the opacity of the hamburger menu when the 'scrolled' class is present */
-        .hamburger-menu.scrolled {
-            opacity: 0.75;
-        }
-        .hamburger-menu.open {
-            border-radius: 0 0 0 0;
-            transition: all 0.3s;
-        }
-        #menu-title {
-            margin: 0;
-            font-size: 20px;
-            font-weight: bold;
-            position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%);
-        }
-        .hamburger-menu #icon {
-            animation: spinning infinite 3.5s ease-in-out;
-        }
-        @keyframes spinning {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(720deg);
-            }
-        }
-        .menu-icon {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 25px;
-            width: 30px;
-            margin: 17.5px;
-            margin-left: auto; /* Move the menu-icon to the right */
-            position: absolute;
-            right: 0;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .bar {
-            background-color: black;
-            height: 3.5px;
-            width: 30px;
-            transition: transform 0.3s, opacity 0.3s;
-            border-radius: 1000px;
-        }
-        .bar.change:nth-child(1) {
-            transform: translateY(11px) rotate(135deg);
-            opacity: 1; /* add this line */
-        }
-
-        .bar.change:nth-child(2) {
-            transform: translateX(100%);
-            opacity: 0; /* add this line */
-        }
-
-        .bar.change:nth-child(3) {
-            transform: translateY(-11px) rotate(-135deg);
-            opacity: 1; /* add this line */
-        }
-        .menu-links {
-            z-index: -1;
-            list-style: none;
-            margin: 0;
-            margin-top: -50px;
-            border-radius: 0 0 15px 15px;
-            text-align: center;
-            padding: 0;
-            opacity: 0;
-            right: 0%;
-            width: 10%;
-            min-width: fit-content;
-            position: absolute;
-            background-color: white;
-            transform: translateY(-34%); /* add this line */;
-            transition: all 0.3s;
-        }
-
-        .menu-links.menu-open {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            width: 10%;
-            min-width: fit-content;
-            padding-left: 0.5%;
-            opacity: 1;
-            transform: translateY(34%); /* add this line */
-            transition: all 0.3s;
-        }
-
-        .menu-links li {
-            padding: 7.5px;
-        }
-
-        .menu-links a {
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
         }
 p{
     font-size: 17.5px;
@@ -213,26 +45,6 @@ box-sizing: border-box;
     text-align: center;
 }
     /* ------------------------------ */
-button {
-    position: relative;
-    border: none;
-    font-size: 18px;
-    transition: color 0.5s, transform 0.2s, background-color 0.2s;
-    outline: none;
-    border-radius: 3px;
-    margin: 0 10px;
-    padding: 23px 33px;
-    border: 3px solid transparent;
-}
-
-button:active {
-    transform: translateY(3px);
-}
-
-button::after,
-button::before {
-    border-radius: 3px;
-}
 .refreshButton {
     margin-top: 3.5px;
     margin-bottom: 3.5px;
@@ -270,21 +82,7 @@ button::before {
     font-size: 40px;
     transition: all 0.3s;
 }
-.text {
-    text-align: center;
-}
 /* Contents */
-.content {
-    position: relative; /* add this line */
-    margin: 0;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
-    box-sizing: border-box;
-}
-.content p:hover {
-    cursor: default;
-}
 .hoverable {
     color: black;
     cursor: default;
@@ -385,53 +183,6 @@ button::before {
     }
         /* ------------------------------ */
 
-.shrink-border {
-  background-color: rgba(229, 229, 229, 0.36);
-  color:black;
-  border: 1.75px solid black;
-  z-index: 5;
-}
-
-.shrink-border:hover {
-  background-color: transparent;
-  box-shadow: none;
-  color: black;
-}
-
-.shrink-border::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 1.75px solid black;
-  transition: opacity 0.3s, border 0.3s;
-}
-
-.shrink-border:hover::before {
-  opacity: 0;
-}
-
-.shrink-border::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(229, 229, 229, 0.36);
-  border: 1.75px solid white;
-  opacity: 0;
-  z-index: -1;
-  transform: scaleX(1.1) scaleY(1.3);
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.shrink-border:hover::after {
-  opacity: 1;
-  transform: scaleX(1) scaleY(1);
-}
 .copyrightIMG {
     opacity: 0.7;
     font-size: 10px;
@@ -440,60 +191,67 @@ button::before {
 }
 /* --------------------------------------------------------------- */
 
-.top-items {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-.top-items li {
-    float: left;
-    position: relative;
-}
-.top-items p{
-    margin-left: 1vh;
-    font-size: 2.5vh;
-}
-.top-items .name {
-    font-weight: bold;
-}
-.top-items .s-imgC {
-    border-style: solid;
-    border-color:  #3d3d3d;
-    border-width: 0 0.5px 1px 0;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+ul.top-items {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white; /* Set the background color */
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    height: 45vh;
 }
-
-.top-items .s-imgC img {
-    max-width: 100%; /* Ensure the image doesn't exceed the container's width */
-    max-height: 100%; /* Ensure the image doesn't exceed the container's height */
-    object-fit: contain; /* Fit the entire image within the container */
-}
-
-.top-items .buy {
-    position: absolute;
-    bottom: 5px; /* Change top to bottom */
-    right: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-/* Add this CSS to create space for the button */
 .top-items .item-1,
 .top-items .item-2,
 .top-items .item-3,
 .top-items .item-4,
 .top-items .item-5 {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    position: relative;
+    flex: 0 0 20%;
+    height: 100%;
+    border: 1px solid black;
+    transition: all 0.3s;
+}
+
+ul.top-items li {
+    display: flex;
+    flex-direction: column;
     width: 20%;
+    max-height: 45vh;
+}
+
+ul.top-items li .s-imgC {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+ul.top-items li .info {
+    padding: 2.5%;
+    height: 40%;
+}
+.top-items p {
+    font-size: 2.5vh;
+}
+
+.top-items .name {
+    font-weight: bold;
+}
+
+.top-items .s-imgC img {
+    max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+    max-height: 100%; /* Ensure the image doesn't exceed the container's height */
+    object-fit: contain; /* Scale the image up if it's too small */
+}
+.top-items .price {
+    text-align: left;
+}
+.top-items .buy {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 6.5vw;
 }
         /* dark mode */
         body.dark-mode  {
@@ -501,7 +259,7 @@ button::before {
             color: white;
         }
         .dark-mode .hamburger-menu {
-            background-color: rgba(50, 50, 50, 1);
+            background-color: rgb(36, 36, 36);
             color: white;
         }
 
@@ -526,13 +284,13 @@ button::before {
             background-color: white;
         }
         .dark-mode .menu-links{
-            background-color: rgba(50, 50, 50, 1);
+            background-color: rgb(36, 36, 36);
         }
         .dark-mode .menu-links li a{
             color: white;
         }
         .dark-mode.menu-links.menu-open{
-            background-color: rgba(50, 50, 50, 1);
+            background-color: rgb(36, 36, 36);
             color: white;
         }
         .dark-mode.parallelogram{

@@ -1,4 +1,5 @@
 .image-gallery {
+  display: none;
     position: relative;
     width: 30%;
     border: 1px solid black;

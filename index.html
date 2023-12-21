@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oranges Shop - ERROR</title>
-    <link rel="icon" type="image/x-icon" href="/src/img/61416529-orange-frucht-lebensmittel-natürliche-organische-ernährung-natur-vektor-illustration-removebg-preview.ico">
-    <link rel="stylesheet" type="text/css" href="/src/style/home.css">
-    <link rel="stylesheet" href="/src/style/images.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <meta name="description" content="Welcome to Oranges Shop - your one-stop destination for gadgets you never thought about. Explore our wide range of products and find the perfect item for you.">
+    <link rel="icon" type="image/x-icon" href="/shop/src/img/61416529-orange-frucht-lebensmittel-natürliche-organische-ernährung-natur-vektor-illustration-removebg-preview.ico">
+    <link rel="stylesheet" type="text/css" href="/shop/src/style/home.css">
+    <link rel="stylesheet" type="text/css" href="/shop/src/style/default.css">
+    <link rel="stylesheet" href="/shop/src/style/hamburger.css">
+    <link rel="stylesheet" href="/shop/src/style/images.css">
+    <link rel="stylesheet" href="/shop/src/style/button.css">
 </head>
 <body>
-    <!-- don't forgot to address the orignal image-->
     <div class="hamburger-menu">
-        <img src="/src/img/61416529-orange-frucht-lebensmittel-natürliche-organische-ernährung-natur-vektor-illustration-removebg-preview.avif" alt="" id="icon">
+        <img src="/shop/src/img/61416529-orange-frucht-lebensmittel-natürliche-organische-ernährung-natur-vektor-illustration-removebg-preview.avif" alt="" id="icon">
         <p id="menu-title">Oranges shop</p>
         <div class="menu-icon" onclick="toggleMenu()">
             <div class="bar"></div>
@@ -20,16 +22,17 @@
             <div class="bar"></div>
         </div>
         <ul class="menu-links">
-            <li><a href="#">Games</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Tools</a></li>
+            <li><a href="#">My Games</a></li>
+            <li><a href="#">My Projects</a></li>
+            <li><a href="/shop/my-tools/index.html">Tools I use</a></li>
             <li><a href="#">Wallet</a></li>
+            <li><a href="#" class="sign-in">Sign in/out</a></li>
         </ul>
     </div>
     <!-- Contents -->
-    <div class="no-border no-back no-padding content" style="margin-top: 65px;">
+    <div class="no-border no-back no-padding content" style="margin-top: 7.5vh;">
         <button class="b mode" onclick="changeMode()">Dark mode</button>
-        <img src="/src/img/innerback-compressed.jpg" alt="Oranges" class="back-img">
+        <img src="/shop/src/img/innerback-compressed.jpg" alt="Oranges" class="back-img">
         <div class="text-block trapezoid">
             <div class="ub">
                 <h1>Oranges Shop</h1>
@@ -43,51 +46,61 @@
         <ul class="top-items">
             <li class="item-1">
                 <div class="s-imgC">
-                    <img src="/src/img/default.avif" alt="" class="s-image">
+                    <img src="/shop/src/img/default.avif" alt="" class="s-image">
                 </div>
-                <p class="name">$NAME</p>
-                <p class="price">$VALUE</p>
-                <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
-            </li>
+                <div class="info">
+                    <p class="name">$NAME</p>
+                    <p class="price">$VALUE</p>
+                    <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
+                </div>    
+                </li>
             <li class="item-2">
                 <div class="s-imgC">
-                    <img src="/src/img/default.avif" alt="" class="s-image">
+                    <img src="/shop/src/img/default.avif" alt="" class="s-image">
                 </div>
-                <p class="name">$NAME</p>
-                <p class="price">$VALUE</p>
-                <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
-            </li>
+                <div class="info">
+                    <p class="name">$NAME</p>
+                    <p class="price">$VALUE</p>
+                    <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
+                </div>
+                </li>
             <li class="item-3">
                 <div class="s-imgC">
-                    <img src="/src/img/default.avif" alt="" class="s-image">
+                    <img src="/shop/src/img/default.avif" alt="" class="s-image">
                 </div>
-                <p class="name">$NAME</p>
-                <p class="price">$VALUE</p>
-                <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
+                <div class="info">
+                    <p class="name">$NAME</p>
+                    <p class="price">$VALUE</p>
+                    <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
+                </div>
             </li>
             <li class="item-4">
                 <div class="s-imgC">
-                    <img src="/src/img/default.avif" alt="" class="s-image">
+                    <img src="/shop/src/img/default.avif" alt="" class="s-image">
                 </div>
-                <p class="name">$NAME</p>
-                <p class="price">$VALUE</p>
-                <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
+                <div class="info">
+                    <p class="name">$NAME</p>
+                    <p class="price">$VALUE</p>
+                    <button class="buy shrink-border" onclick="console.log('still working')">buy</button>
+                </div>
             </li>
             <li class="item-5">
                 <div class="s-imgC">
-                    <img src="/src/img/default.avif" alt="" class="s-image">
+                    <img src="/shop/src/img/default.avif" alt="" class="s-image">
                 </div>
-                <p class="name">$NAME</p>
-                <p class="price">$VALUE</p>
-                <button class="shrink-border buy" onclick="console.log('still working')">buy</button>
+                <div class="info">
+                    <p class="name">$NAME</p>
+                    <p class="price">$VALUE</p>
+                    <button class="shrink-border buy" onclick="console.log('still working')">buy</button>
+                </div>
             </li>
         </ul>
         
     </div>
-    <div class="image-gallery" style="display: none;">
-    <div class="images" style="display: none;">
-        <img src="/src/test/img/FuXuan.jpeg" alt="Image 1">
-        <img src="/src/test/img/HoV.png" alt="Image 2">
+    <div class="image-gallery">
+    <div class="images">
+        <img src="/shop/src/test/img/FuXuan.jpeg" alt="Image 1">
+        <img src="/shop/src/test/img/HoV.png" alt="Image 2">
         <!-- Add more images as needed -->
     </div>
         <div class="controls">
@@ -95,14 +108,18 @@
             <button class="next-btn">Next</button>
         </div>
     </div>
+    <div class="d"><a href="/shop/datenschutz/index.html" style="font-size: 25px;color: white;">Datenschutz</a></div>
+    <button onclick="fetchall()">Github test -> Terminal</button>
     <div class="loader-wrapper">
         <span class="loader">
             <span class="loader-inner"></span>
         </span>
     </div>
-    <script async src="/src/js/loading.min.js"></script>
-    <script defer src="/src/js/image.js"></script>
-    <script defer src="/src/js/script.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script async src="/shop/src/js/loading.min.js"></script>
+    <script async src="/shop/src/js/test.js"></script>
+    <script defer src="/shop/src/js/image.js"></script>
+    <script defer src="/shop/src/js/script.js"></script>
     </script>
 </body>
 </html> 
