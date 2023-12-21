@@ -1,7 +1,7 @@
 {
     "name": "Babyblue Hoodie",
     "image": [
-        "/img/bbblue_hoodie_squared-veed-remove-background.avif"
+        "/src/img/bbblue_hoodie_squared-veed-remove-background.avif"
     ],
     "price": 95,
     "url": "#"
