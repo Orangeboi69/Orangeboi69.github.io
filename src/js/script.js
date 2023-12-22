@@ -76,58 +76,11 @@ randomName = [
             }
             document.title = "Orange's Shop - " + daterepresnts[day] + "," + date;
         }
-        function changeMode() {
-            let now = new Date();
-            let year = now.getFullYear();
-            let month = now.getMonth();
-            let day = now.getDay();
-            var date = now.getDate();
-            const daterepresnts = {
-                0: "Sunday",
-                1: "Monday",
-                2: "Tuesday",
-                3: "Wednesday",
-                4: "Thrusday",
-                5: "Friday",
-                6: "Saturday"
-            }
-            var date1 = daterepresnts[day];
-            let hour = now.getHours();
-            let minute = now.getMinutes();
-            let second = now.getSeconds();
-            let time = date1 + "," + year +"/"+ month +"/" + day +", at " + hour + ":" + minute + ":" + second;
-            console.log("Change mode function called " + time)
-                const body = document.querySelector('body');
-                const hamburgerMenu = document.querySelector('.hamburger-menu');
-                const content = document.querySelector('.content');
-                const hoverable = document.querySelectorAll('.hoverable');
-                
-                body.classList.toggle('dark-mode');
-                hamburgerMenu.classList.toggle('dark-mode');
-                content.classList.toggle('dark-mode');
-                hoverable.forEach(element => {
-                    element.classList.toggle('dark-mode');
-                });
 
-                // Additional logic for other elements if needed
-
-                const textblock = document.querySelector('.text-block');
-                textblock.classList.toggle('dark-mode');
-                // Change text for the button
-                const button = document.querySelector('.mode');
-                if (button.innerHTML === 'Dark mode') {
-                    button.innerHTML = 'Light mode';
-                } else {
-                    button.innerHTML = 'Dark mode';
-                    button.classList.toggle('dark-mode');
-                }
-                // for menu /-bar
-                const bars = document.querySelectorAll('.bar');
-
-                for (let j = 0; j < bars.length; j++) {
-                    bars[j].classList.toggle('dark-mode');
-                }
-            };function de(e) {let o = "";let i = e.substring(0, e.length - 4);let i2 = i.substring(0, i.length - 4);o=atob(i2).substring(4);return o;}
+        function de(e) {
+            const i = e.substring(0, e.length - 4).substring(0, i.length - 4);
+            return atob(i).substring(4);
+        }
         window.addEventListener('scroll', function() {
             var hamburgerMenu = document.querySelector('.hamburger-menu');
             var scrollPosition = window.scrollY;

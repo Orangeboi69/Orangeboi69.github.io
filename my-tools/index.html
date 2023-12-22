@@ -7,6 +7,38 @@
     <link rel="icon" type="image/x-icon" href="/src/img/61416529-orange-frucht-lebensmittel-natürliche-organische-ernährung-natur-vektor-illustration-removebg-preview.ico">
     <link rel="stylesheet" href="/src/style/default.css">
     <link rel="stylesheet" href="/src/style/hamburger.css">
+    <style>
+        a {
+            color: #000;
+        }
+        div.content ul.tools {
+            list-style-type: none;
+            padding: 0;
+            margin: 1vh;
+            text-align: center;
+            justify-content: center;
+            font-size: 2.5vh;
+        }
+        div.content ul.tools li.item1,
+        div.content ul.tools li.item2,
+        div.content ul.tools li.item3 {
+            text-align: center;
+            justify-content: center;
+        }
+        div.content ul.tools li.item1 img.tools-ico,
+        div.content ul.tools li.item2 img.tools-ico,
+        div.content ul.tools li.item3 img.tools-ico {
+            width: 5vh;
+            height: 5vh;
+            margin: 1vh;
+        }
+        div.content ul.tools li.item1 a.URL,
+        div.content ul.tools li.item2 a.URL,
+        div.content ul.tools li.item3 a.URL {
+            display: inline-block;
+            height: 5vh;
+        }
+    </style>
 </head>
 <body>
     <div class="hamburger-menu">
@@ -29,12 +61,24 @@
             <li><a href="/default/index.html" class="sign-in">Sign in/out</a></li>
         </ul>
     </div>
+
     <div class="content" style="margin-top: 8vh;">
-        <p class="text"><b>Tools I use:</b></p>
+        <button class="mode" onclick="changeMode()">Mode</button>
+        <p class="text" style="font-size: 2vh; margin-bottom: 0;"><b>Tools I use:</b></p>
         <ul class="tools">
-            <li class="item1"></li>
-            <li class="item2"></li>
-            <li class="item3"></li>
+            <li class="item1">
+                <div class="item-wrapper">
+                    <img class="tools-ico" src="/src/img/vscode1.35ico.avif" alt="A picture of Vscodes Icon">
+                    <a class="URL" href="https://code.visualstudio.com/">Visual Studio Code</a>
+                </div>
+            </li>
+            <li class="item2">
+                <img class="tools-ico" src="/src/img/chromedevtoolico.avif" alt="A picture of Chromes DevTools Icon">
+                <a class="URL" href="https://developer.chrome.com/docs/devtools">Chrome DevTools</a>
+            </li>
+            <li class="item3">
+                <a href="https://github.com/">GitHub</a>
+            </li>
         </ul>
     </div>
     <!-- Loading screen -->
@@ -46,6 +90,7 @@
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script async src="/src/js/loading.min.js"></script>
+    <script src="/src/js/changeMode.js"></script>
     <script>
         function toggleMenu() {
             const menuLinks = document.querySelector('.menu-links');
