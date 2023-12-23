@@ -20,12 +20,6 @@
             opacity: 0;
             transition: all 1s ease-in-out;
         }
-p{
-    font-size: 17.5px;
-}
-a{
-    text-decoration: none;
-}
 img {
     line-height : 0;
     vertical-align:bottom;
@@ -251,7 +245,9 @@ ul.top-items li .info {
     right: 0;
     text-transform: uppercase;
     font-weight: bold;
+    text-align: center;
     width: 6.5vw;
+    height: 3.5vh;
 }
         /* dark mode */
         body.dark-mode  {
