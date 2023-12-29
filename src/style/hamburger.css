@@ -95,7 +95,7 @@
     min-width: fit-content;
     position: absolute;
     background-color: white;
-    transform: translateY(-27%); /* add this line */;
+    transform: translateY(-37%); /* add this line */;
     transition: all 0.3s;
 }
 
