@@ -19,6 +19,15 @@
             line-height : 0;
             vertical-align:bottom;
         }
+        button {
+            text-align: center;
+            height: max-content;
+            width: max-content;
+            border-radius: 5px;
+        }
+        button:hover {
+            cursor: pointer;
+        }
         /* Loader */
         .loader-wrapper {
             width: 100%;
@@ -96,4 +105,43 @@
             border: 1px solid black;
             padding: 10px;
             transition: all 0.3s;
+        }
+        body.dark-mode  {
+            background-color: black;
+            color: white;
+        }
+        .dark-mode .hamburger-menu {
+            background-color: rgb(36, 36, 36);
+            color: white;
+        }
+
+        .dark-mode .content {
+            background-color: rgba(50, 50, 50, 1);
+            color: white;
+            border-color:rgba(20, 20, 20, 1);
+        }
+        .dark-mode button.mode {
+            background-color: rgba(50, 50, 50, 1);
+            border-color:rgba(20, 20, 20, 1);
+            color: white;
+            transition: all 0.3s;
+        }
+        .dark-mode button.mode:hover {
+            background-color: #444;
+            border-color:rgba(20, 20, 20, 1);
+            color: white;
+            transition: all 0.3s;
+        }
+        .dark-mode .bar {
+            background-color: white;
+        }
+        .dark-mode .menu-links{
+            background-color: rgb(36, 36, 36);
+        }
+        .dark-mode .menu-links li a{
+            color: white;
+        }
+        .dark-mode.menu-links.menu-open{
+            background-color: rgb(36, 36, 36);
+            color: white;
         }

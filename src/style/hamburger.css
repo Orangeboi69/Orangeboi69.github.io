@@ -68,7 +68,7 @@
     border-radius: 1000vh;
 }
 .bar.change:nth-child(1) {
-    transform: translateY(.59vw) rotate(135deg);
+    transform: translateY(300%) rotate(135deg);
     opacity: 1; /* add this line */
 }
 
@@ -78,7 +78,7 @@
 }
 
 .bar.change:nth-child(3) {
-    transform: translateY(-.59vw) rotate(-135deg);
+    transform: translateY(-300%) rotate(-135deg);
     opacity: 1; /* add this line */
 }
 .menu-links {
