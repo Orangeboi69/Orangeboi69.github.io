@@ -4,3 +4,6 @@ my site
 ## Purpose:
   - Understands how APIs works.
   - Get familiar with APIs/Networks.
+
+## Status:
+  - Discountinued
