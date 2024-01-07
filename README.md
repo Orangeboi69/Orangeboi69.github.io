@@ -6,4 +6,4 @@ my site
   - Get familiar with APIs/Networks.
 
 ## Status:
-  - Discountinued
+  - Rarely updates

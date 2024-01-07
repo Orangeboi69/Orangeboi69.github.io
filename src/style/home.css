@@ -241,7 +241,7 @@ ul.top-items li .info {
 }
 .top-items .buy {
     position: absolute;
-    bottom: 5px;
+    bottom: .5vh;
     right: 0;
     text-transform: uppercase;
     font-weight: bold;

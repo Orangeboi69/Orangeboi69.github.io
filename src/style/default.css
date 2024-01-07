@@ -23,7 +23,7 @@
             text-align: center;
             height: max-content;
             width: max-content;
-            border-radius: 5px;
+            border-radius: .3em;
         }
         button:hover {
             cursor: pointer;

@@ -26,9 +26,12 @@
             justify-content: center;
         }
         div.content ul.tools li.item1 img.tools-ico,
-        div.content ul.tools li.item2 img.tools-ico,
-        div.content ul.tools li.item3 img.tools-ico {
+        div.content ul.tools li.item2 img.tools-ico {
             width: 5vh;
+            height: 5vh;
+            margin: 1vh;
+        }
+        div.content ul.tools li.item3 img.tools-ico {
             height: 5vh;
             margin: 1vh;
         }
@@ -37,6 +40,12 @@
         div.content ul.tools li.item3 a.URL {
             display: inline-block;
             height: 5vh;
+        }
+        .dark-mode #GithubL {
+            filter: invert(1);
+        }
+        .dark-mode a {
+            color: #fff;
         }
     </style>
 </head>
@@ -77,7 +86,8 @@
                 <a class="URL" href="https://developer.chrome.com/docs/devtools">Chrome DevTools</a>
             </li>
             <li class="item3">
-                <a href="https://github.com/">GitHub</a>
+                <img class="tools-ico" id="GithubL" src="/src/img/GitHub_Logo.avif" alt="A picture of GitHub's Icon">
+                <a class="URL" href="https://github.com/">GitHub</a>
             </li>
         </ul>
     </div>
