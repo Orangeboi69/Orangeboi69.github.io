@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Visualiser</title>
+    <meta name="description" content="Grade Visualiser - State: alpha 1.0">
+    <link rel="stylesheet" href="h.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hamburger-menu">
+        <p id="menu-title">Grade Visualiser</p>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu-links">
+            <li><a>My Github</a></li>
+            <li><a>Tools I use</a></li>
+            <li><a>Settings</a></li>
+        </ul>
+    </div>
+    <!-- Contents -->
+    <div class="container">
+        <h1>Grade Visualization</h1>
+        <div class="input-container">
+            <label for="subject1">German:</label>
+            <input type="text" id="subject1" class="grade-input"/>
+            <label for="subject2">English:</label>
+            <input type="text" id="subject2" class="grade-input"/>
+            <label for="subject3">Math:</label>
+            <input type="text" id="subject3" class="grade-input"/>
+            <label for="subject4">French:</label>
+            <input type="text" id="subject4" class="grade-input"/>
+            <label for="subject5">Sport:</label>
+            <input type="text" id="subject5" class="grade-input"/>
+            <!-- Repeat for other subjects -->
+        </div>
+        <button onclick="drawGraph()">Generate Graph</button>
+        <div id="graph-container"></div>
+    </div>
+    <!-- Scripts -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
