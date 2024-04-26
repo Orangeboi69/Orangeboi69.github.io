@@ -18,9 +18,17 @@ function getRandomColor() {
     return color;
 }
 function drawGraph() {
-    const subjects = ['Subject 1', 'Subject 2', 'Subject 3', 'Subject 4', 'Subject 5'];
+    const subjects = [];
+    //get subject names
+    for (let i = 1; i <= 5; i++) {
+        console.log(`subject${i}`)
+        const subjectInput = document.getElementById(`${i}L`).textContent;
+        subjects.push(subjectInput.slice(0, -1));
+    }
+    console.log(subjects);
     const grades = [];
     for (let i = 1; i <= 5; i++) {
+        console.log(`subject${i} + value`)
         const gradeInput = document.getElementById(`subject${i}`).value;
         grades.push(parseFloat(gradeInput));
     }
@@ -53,6 +61,7 @@ function drawGraph() {
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
         ctx.fillText(subjects[i - 1], labelX, labelY);
+        console.log(`subject: ${subjects[i - 1]}`);
     }
 
     ctx.closePath();

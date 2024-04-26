@@ -110,7 +110,7 @@
     min-width: fit-content;
     padding-left: 0.5%;
     opacity: 1;
-    transform: translateY(27%); /* add this line */
+    transform: translateY(22.5%); /* add this line */
     transition: all 0.3s;
 }
 
