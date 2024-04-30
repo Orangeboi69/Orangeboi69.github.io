@@ -162,6 +162,11 @@ function drawGraph() {
     ctx.lineWidth = 1;
     ctx.stroke();
 
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 2*radius/3, 0, 2 * Math.PI);
+    ctx.strokeStyle = '#808080';
+    ctx.lineWidth = 1;
+    ctx.stroke();
     document.getElementById('graph-container').innerHTML = '';
     document.getElementById('graph-container').appendChild(canvas);
 }
