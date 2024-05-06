@@ -1,0 +1,24 @@
+.hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(228, 228, 228);
+    color: black;
+    z-index: 1000;
+    height: 7vh;
+    display: flex; /* Add flex display */
+    text-align: right;
+    border-radius: 0 0 2.5vh 0;
+    transition: all 0.3s;
+}
+.menu-links {
+    background-color: rgb(228, 228, 228);
+    transform: translateY(-37%); /* add this line */;
+    transition: all 0.3s;
+}
+
+div.back:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(230, 230, 230);
+}

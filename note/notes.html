@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade Visualiser</title>
     <meta name="description" content="Grade Visualiser - State: alpha 1.0">
-    <link rel="stylesheet" href="h.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/style/hamburger.css">
+    <link rel="stylesheet" href="/src/style/h.css">
+    <link rel="stylesheet" href="/src/style/nstyle.css">
+    <style>
+        #backURL {
+            text-decoration: none;
+        }
+        #infos {
+            min-width: fit-content;
+            text-align: center;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <div class="hamburger-menu">
+        <div class="back">
+            <div id="arrow"></div>
+            <a id="backURL" href="/index.html">Back</a>
+        </div>
         <p id="menu-title">Grade Visualiser</p>
         <div class="menu-icon" onclick="toggleMenu()">
             <div class="bar"></div>
@@ -36,14 +51,20 @@
             <input type="text" id="subject4" class="grade-input"/>
             <label for="subject5" id="5L">Sport:</label>
             <input type="text" id="subject5" class="grade-input"/>
+            <label for="subject6" id="6L">Chemie:</label>
+            <input type="text" id="subject6" class="grade-input"/>
+            <label for="subject7" id="7L">Physik:</label>
+            <input type="text" id="subject7" class="grade-input"/>       
             <!-- Repeat for other subjects -->
         </div>
         <button onclick="drawGraph()">Generate Graph</button>
         <div id="graph-container"></div>
     </div>
     <div class="container">
-        <p>Gray = 66%</p>
-        <p id="status">Under Construction! - Orange, May.3</p>
+        <div id="infos">
+            <p>Gray = 66%</p>
+            <p id="status">Under Construction! - Orange, May.3</p>
+            </div>
     </div>
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
