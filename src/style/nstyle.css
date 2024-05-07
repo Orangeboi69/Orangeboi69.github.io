@@ -22,7 +22,6 @@ body {
     padding: 5px;
     margin-left: 10px;
 }
-
 button {
     padding: 10px 20px;
     background-color: #007bff;
@@ -38,4 +37,10 @@ button {
     margin-top: 20px;
     align-items: center;
     justify-content: center;
+}
+.input-container input {
+    margin-left: 0;
+}
+.input-container label{
+    margin-right: 100%;
 }

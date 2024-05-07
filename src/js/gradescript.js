@@ -1,3 +1,7 @@
+console.log('[Debug]gradescript.js running')
+const inputContainer = document.querySelector('.input-container');
+let objectCount = inputContainer.querySelectorAll('input').length;
+var disabledSubjects = [];
 function toggleMenu() {
     const menuLinks = document.querySelector('.menu-links');
     const bars = document.querySelectorAll('.bar');
@@ -65,22 +69,49 @@ function getAmericanGrade(grade) {
     };
     return AgradeDict[grade];
 }
-    // Function to draw the graph
-    function drawGraph() {
-
-        const grades = [];
-        const inputContainer = document.querySelector('.input-container');
-        const objectCount = inputContainer.querySelectorAll('input').length;
-        const subjects = [];
-        // Get subject names
-        for (let i = 1; i <= objectCount; i++) {
-            console.log(`subject${i}`)
+function toggleSubject(subject) {
+    /* 
+        1. Get the subject input and name
+        2. Disable/Enable the input and name -> add function to drawGraph() to detect if it's disabled
+        3. Cycle through "enable" and "disable"
+    */
+    console.debug(`button${subject}`)
+    const subjectButton = document.getElementById(`button${subject}`);
+    console.debug(subjectButton)
+    if (subjectButton.textContent == "Disable") {
+        console.debug(`[Debug]D${subject}`)
+        disabledSubjects.push(parseInt(subject));
+        objectCount -= 1;
+        subjectButton.textContent = "Enable";
+    } else {
+        console.debug(`[Debug]E${subject}`)
+        disabledSubjects = disabledSubjects.filter(item => item !== subject);
+        objectCount += 1;
+        subjectButton.textContent = "Disable";
+    }
+    console.debug(`[Debug]disabledSubjects: ${disabledSubjects}`)
+}
+// Function to draw the graph
+function drawGraph() {
+    console.log("[Debug]drawGraph() running")
+    const grades = [];
+    const subjects = [];
+    // Get subject names
+    for (let i = 1; i <= objectCount+1; i++) {
+        if (!disabledSubjects.includes(i)){
+            console.debug(`subject${i},${objectCount+1}`)
             const subjectInput = document.getElementById(`${i}L`).textContent;
             subjects.push(subjectInput.slice(0, -1));
         }
-        console.log(subjects);
-        // Get Grades
-        for (let i = 1; i <= objectCount; i++) {
+    }
+    console.log(subjects);
+    // Get Grades
+    for (let i = 1; i <= objectCount+1; i++) {
+        console.debug(i)
+        console.debug(disabledSubjects)
+        console.debug(disabledSubjects.includes(i))
+        if (!disabledSubjects.includes(i)){
+            console.debug(`subject${i} isn't disabled`)
             if (document.getElementById(`subject${i}`).value != '') {
                 // Float/Percentage
                 if (document.getElementById(`subject${i}`).value.includes('%')) {
@@ -90,13 +121,13 @@ function getAmericanGrade(grade) {
                 }
                 // American
                 else if (['A', 'B', 'C', 'D', 'F'].some(letter => document.getElementById(`subject${i}`).value.includes(letter))) {
-                    console.log(`subject${i} + value(American)`)
+                    console.log(`subject${i} + value(American system)`)
                     const gradeInput = document.getElementById(`subject${i}`).value;
                     grades.push(getAmericanGrade(gradeInput));
                 }
                 // German
                 else {
-                    console.log(`subject${i} + value(German)`)
+                    console.log(`subject${i} + value(German system)`)
                     const gradeInput = document.getElementById(`subject${i}`).value;
                     grades.push(getGermanGrade(gradeInput));
                 }
@@ -106,84 +137,84 @@ function getAmericanGrade(grade) {
                 console.error('No grade for subject ' + i)
             }
         }
-        console.log(grades);
-
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = 400;
-        canvas.height = 400;
-
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
-        const radius = 150;
-
-        ctx.beginPath();
-        ctx.moveTo(centerX + radius * Math.cos(0), centerY + radius * Math.sin(0));
-
-        // Loop through each subject
-        for (let i = 1; i <= objectCount; i++) {
-            const grade = grades[i - 1] || 0;
-
-            // Calculate the angle for the current subject
-            const angle = (i * Math.PI * 2) / objectCount;
-        
-            // Calculate the end point of the line based on the grade
-            const percent = grade / 100;
-            const endX = centerX + radius * percent * Math.cos(angle);
-            const endY = centerY + radius * percent * Math.sin(angle);
-        
-            // Save the coordinates of the first and last points
-            if (i == 1) {
-                firstX = endX;
-                firstY = endY;
-            }
-            lastX = endX;
-            lastY = endY;
-        
-            // Draw the line from the center to the end point
-            ctx.lineTo(endX, endY);
-            // Label for each subject
-            const labelX = centerX + (radius + 20) * Math.cos(angle);
-            const labelY = centerY + (radius + 20) * Math.sin(angle);
-            ctx.font = '12px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText(subjects[i - 1], labelX, labelY);
-            console.log(`subject: ${subjects[i - 1]}`);
-        }
-        // Draw a line from the center to the first grade
-        ctx.lineTo(firstX, firstY);
-    
-        //Color fill
-        var c = getRandomColor('rgb').slice(0, -1) + ',0.5)';
-        ctx.closePath();
-        ctx.fillStyle = c; // Add transparency here
-        ctx.fill();
-
-        // Draw central point as a dot
-        ctx.beginPath();
-        ctx.arc(centerX, centerY, 1, 0, 2 * Math.PI);
-        ctx.fillStyle = '#000';
-        ctx.fill();
-
-        // Draw border
-        ctx.strokeStyle = '#000';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        // Draw outline for the entire graph
-        ctx.beginPath();
-        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = '#000';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        // Draw ultine
-        ctx.beginPath();
-        ctx.arc(centerX, centerY, 2 * radius / 3, 0, 2 * Math.PI);
-        ctx.strokeStyle = '#808080';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        document.getElementById('graph-container').innerHTML = '';
-        document.getElementById('graph-container').appendChild(canvas);
     }
+    console.log(grades);
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 400;
+    canvas.height = 400;
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 150;
+
+    ctx.beginPath();
+    ctx.moveTo(centerX + radius * Math.cos(0), centerY + radius * Math.sin(0));
+
+    // Loop through each subject
+    for (let i = 1; i <= objectCount; i++) {
+        const grade = grades[i - 1] || 0;
+
+        // Calculate the angle for the current subject
+        const angle = (i * Math.PI * 2) / objectCount;
+    
+        // Calculate the end point of the line based on the grade
+        const percent = grade / 100;
+        const endX = centerX + radius * percent * Math.cos(angle);
+        const endY = centerY + radius * percent * Math.sin(angle);
+    
+        // Save the coordinates of the first and last points
+        if (i == 1) {
+            firstX = endX;
+            firstY = endY;
+        }
+        lastX = endX;
+        lastY = endY;
+    
+        // Draw the line from the center to the end point
+        ctx.lineTo(endX, endY);
+        // Label for each subject
+        const labelX = centerX + (radius + 20) * Math.cos(angle);
+        const labelY = centerY + (radius + 20) * Math.sin(angle);
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        if (!disabledSubjects.includes(i)){ctx.fillText(subjects[i-1], labelX, labelY);console.debug(`subject: ${subjects[i - 1]}`);}
+    }
+    // Draw a line from the center to the first grade
+    ctx.lineTo(firstX, firstY);
+
+    //Color fill
+    var c = getRandomColor('rgb').slice(0, -1) + ',0.5)';
+    ctx.closePath();
+    ctx.fillStyle = c; // Add transparency here
+    ctx.fill();
+
+    // Draw central point as a dot
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 1, 0, 2 * Math.PI);
+    ctx.fillStyle = '#000';
+    ctx.fill();
+
+    // Draw border
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Draw outline for the entire graph
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Draw ultine
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 2 * radius / 3, 0, 2 * Math.PI);
+    ctx.strokeStyle = '#808080';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    document.getElementById('graph-container').innerHTML = '';
+    document.getElementById('graph-container').appendChild(canvas);
+}
