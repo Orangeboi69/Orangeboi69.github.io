@@ -92,12 +92,15 @@ function toggleSubject(subject) {
     console.debug(`[Debug]disabledSubjects: ${disabledSubjects}`)
 }
 // Function to draw the graph
-function drawGraph() {
+function drawGraph(inp=NaN) {
     console.log("[Debug]drawGraph() running")
-    const grades = [];
+    let grades = [];
     const subjects = [];
+    if (inp != NaN){
+        grades = inp;
+    }
     // Get subject names
-    for (let i = 1; i <= objectCount+1; i++) {
+    for (let i = 1; i <= objectCount; i++) {
         if (!disabledSubjects.includes(i)){
             console.debug(`subject${i},${objectCount+1}`)
             const subjectInput = document.getElementById(`${i}L`).textContent;
@@ -106,35 +109,37 @@ function drawGraph() {
     }
     console.log(subjects);
     // Get Grades
-    for (let i = 1; i <= objectCount+1; i++) {
-        console.debug(i)
-        console.debug(disabledSubjects)
-        console.debug(disabledSubjects.includes(i))
-        if (!disabledSubjects.includes(i)){
-            console.debug(`subject${i} isn't disabled`)
-            if (document.getElementById(`subject${i}`).value != '') {
-                // Float/Percentage
-                if (document.getElementById(`subject${i}`).value.includes('%')) {
-                    console.log(`subject${i} + value`)
-                    const gradeInput = document.getElementById(`subject${i}`).value;
-                    grades.push(parseFloat(gradeInput));
+    if (inp != NaN) {
+        for (let i = 1; i <= objectCount; i++) {
+            console.debug(i)
+            console.debug(disabledSubjects)
+            console.debug(disabledSubjects.includes(i))
+            if (!disabledSubjects.includes(i)){
+                console.debug(`subject${i} isn't disabled`)
+                if (document.getElementById(`subject${i}`).value != '') {
+                    // Float/Percentage
+                    if (document.getElementById(`subject${i}`).value.includes('%')) {
+                        console.log(`subject${i} + value`)
+                        const gradeInput = document.getElementById(`subject${i}`).value;
+                        grades.push(parseFloat(gradeInput));
+                    }
+                    // American
+                    else if (['A', 'B', 'C', 'D', 'F'].some(letter => document.getElementById(`subject${i}`).value.includes(letter))) {
+                        console.log(`subject${i} + value(American system)`)
+                        const gradeInput = document.getElementById(`subject${i}`).value;
+                        grades.push(getAmericanGrade(gradeInput));
+                    }
+                    // German
+                    else {
+                        console.log(`subject${i} + value(German system)`)
+                        const gradeInput = document.getElementById(`subject${i}`).value;
+                        grades.push(getGermanGrade(gradeInput));
+                    }
                 }
-                // American
-                else if (['A', 'B', 'C', 'D', 'F'].some(letter => document.getElementById(`subject${i}`).value.includes(letter))) {
-                    console.log(`subject${i} + value(American system)`)
-                    const gradeInput = document.getElementById(`subject${i}`).value;
-                    grades.push(getAmericanGrade(gradeInput));
-                }
-                // German
                 else {
-                    console.log(`subject${i} + value(German system)`)
-                    const gradeInput = document.getElementById(`subject${i}`).value;
-                    grades.push(getGermanGrade(gradeInput));
+                    grades.push(0);
+                    console.error('No grade for subject ' + i)
                 }
-            }
-            else {
-                grades.push(0);
-                console.error('No grade for subject ' + i)
             }
         }
     }
@@ -142,12 +147,12 @@ function drawGraph() {
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 400;
-    canvas.height = 400;
+    canvas.width = 1000;
+    canvas.height = 1000;
 
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const radius = 150;
+    const radius = 350;
 
     ctx.beginPath();
     ctx.moveTo(centerX + radius * Math.cos(0), centerY + radius * Math.sin(0));
@@ -175,9 +180,9 @@ function drawGraph() {
         // Draw the line from the center to the end point
         ctx.lineTo(endX, endY);
         // Label for each subject
-        const labelX = centerX + (radius + 20) * Math.cos(angle);
-        const labelY = centerY + (radius + 20) * Math.sin(angle);
-        ctx.font = '12px Arial';
+        const labelX = centerX + (radius + 25) * Math.cos(angle);
+        const labelY = centerY + (radius + 25) * Math.sin(angle);
+        ctx.font = '14px Arial';
         ctx.textAlign = 'center';
         if (!disabledSubjects.includes(i)){ctx.fillText(subjects[i-1], labelX, labelY);console.debug(`subject: ${subjects[i - 1]}`);}
     }
@@ -210,11 +215,12 @@ function drawGraph() {
 
     // Draw ultine
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 2 * radius / 3, 0, 2 * Math.PI);
+    ctx.arc(centerX, centerY, 3 * radius / 4, 0, 2 * Math.PI);
     ctx.strokeStyle = '#808080';
     ctx.lineWidth = 1;
     ctx.stroke();
 
     document.getElementById('graph-container').innerHTML = '';
+    canvas.id = 'graph';
     document.getElementById('graph-container').appendChild(canvas);
 }
