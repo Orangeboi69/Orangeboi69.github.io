@@ -114,13 +114,13 @@ randomName = [
             }
         }
         function fetchItems(amount) {
-            console.log("fetching target: http://orangeboi69.github.io/src/data/data/${index}/item.json")
+            console.log("fetching target: http://orangeboi69.github.io/shop/src/data/data/${index}/item.json")
             console.log("start fetching items...");
             //Default Variables
-            var defaultImg = "/src/img/default.avif";
+            var defaultImg = "/shop/src/img/default.avif";
             function fetchItemSequentially(index) {
                 console.log("fetching item: " + index);
-                fetch(`/src/data/${index}/item.json`)
+                fetch(`/shop/src/data/${index}/item.json`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);
