@@ -5,5 +5,4 @@ my site
   - Understands how APIs works.
   - Get familiar with APIs/Networks.
 
-## Status:
-  - Rarely updates
+¯\_(ツ)_/¯
